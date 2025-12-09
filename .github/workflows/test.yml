@@ -13,6 +13,9 @@ jobs:
       - name: create test output 3
         run: python find_lowest_number.py test_data/test3_input.txt test_data/test3_output
 
-
-      - name: diff output
-        run: echo hello world
+      - name: diff test1
+        run: diff test_data/test1_output test_data/test1_expected.txt
+      - name: diff test2
+        run: diff test_data/test2_output test_data/test2_expected.txt
+      - name: diff test2
+        run: diff test_data/test3_output test_data/test3_expected.txt
