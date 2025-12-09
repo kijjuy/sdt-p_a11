@@ -1,0 +1,24 @@
+name: run tests
+on: [push]
+jobs:
+  run-tests-diff:
+    name: run tests diff
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: create test1 output
+        run: python find_lowest_number.py test_data/test1_input.txt test1_output
+      - name: create test2 output
+        run: python find_lowest_number.py test_data/test2_input.txt test2_output
+      - name: create test3 output
+        run: python find_lowest_number.py test_data/test3_input.txt test3_output
+
+      - name: diff test1
+        run: diff test1_output test_data/test1_expected.txt
+      - name: diff test2
+        run: diff test2_output test_data/test2_expected.txt
+      - name: diff test3
+        run: diff test3_output test_data/test3_expected.txt
+
+      
