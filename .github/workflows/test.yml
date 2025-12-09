@@ -1,0 +1,10 @@
+name: Test Output
+on: [push]
+jobs:
+  test_program_output:
+    name: diff_outputs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: diff output
+        run: echo hello world
